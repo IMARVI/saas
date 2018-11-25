@@ -12,13 +12,13 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import AddCicle from '@material-ui/icons/AddCircle';
 import AttachMoney from '@material-ui/icons/AttachMoney';
-import Icon from '@material-ui/core/Icon'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import MenuIcon from '@material-ui/icons/Menu';
+import Home from '@material-ui/icons/Home';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -77,19 +77,25 @@ class Sidebar extends Component {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          <Link to="/nueva-poliza">
-          <ListItem button>
-            <ListItemIcon><AddCicle/></ListItemIcon>
-            <ListItemText primary = "Nueva Poliza"></ListItemText>
-          </ListItem>
+          <Link to="/home">
+            <ListItem button>
+              <ListItemIcon><Home/></ListItemIcon>
+              <ListItemText primary="Inicio"></ListItemText>
+            </ListItem>
+          </Link>
+          <Link to="/poliza-nueva">
+            <ListItem button>
+              <ListItemIcon><AddCicle /></ListItemIcon>
+              <ListItemText primary="Nueva Poliza"></ListItemText>
+            </ListItem>
           </Link>
           <ListItem button>
             <ListItemIcon> <AttachMoney /> </ListItemIcon>
-            <ListItemText primary = "Cotizador"></ListItemText>
+            <ListItemText primary="Cotizador"></ListItemText>
           </ListItem>
           <ListItem button>
-            <ListItemIcon> <PersonAdd/></ListItemIcon>
-            <ListItemText primary = "Agregar Usr"></ListItemText>
+            <ListItemIcon> <PersonAdd /></ListItemIcon>
+            <ListItemText primary="Agregar Usr"></ListItemText>
           </ListItem>
         </List>
       </div>
@@ -109,7 +115,7 @@ class Sidebar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              
+
             </Typography>
           </Toolbar>
         </AppBar>
