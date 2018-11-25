@@ -8,6 +8,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Button from '@material-ui/core/Button'
 
 import './poliza-form.css'
 
@@ -33,21 +34,31 @@ class PolizaForm extends Component {
       fechaAntiguedad: null,
       subgrupo: null,
       nombreDesarrollo: "",
-      sinCosto: true
+      sinCosto: false,
+      comentarios: ""
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSwitch = this.handleChangeSwitch.bind(this);
 
   }
 
   //Metodo para hacer el double binding
   handleChange(event) {
+    console.log(event.target)
     this.setState({
       [event.target.id]: event.target.value,
     });
   }
 
+  handleChangeSwitch(event) {
+    console.log(event.target)
+    this.setState({
+      [event.target.id]: event.target.checked,
+    });
+  }
+
   verificarParentesco() {
-    if (this.state.parentesco == "Conyuge" || this.state.parentesco == "Hijo") {
+    if (this.state.parentesco === "Conyuge" || this.state.parentesco === "Hijo") {
       return true
     } else {
       return false
@@ -220,10 +231,10 @@ class PolizaForm extends Component {
             value={this.state.subgrupo}
             onChange={this.handleChange}
           >
-            <FormControlLabel value="1" control={<Radio id = "subgrupo" checked={this.state.subgrupo === "1"} />} label="I" />
-            <FormControlLabel value="2" control={<Radio id = "subgrupo" checked={this.state.subgrupo === "2"} />} label="II" />
-            <FormControlLabel value="3" control={<Radio id = "subgrupo" checked={this.state.subgrupo === "3"} />} label="III" />
-            <FormControlLabel value="4" control={<Radio id = "subgrupo" checked={this.state.subgrupo === "4"} />} label="IV" />
+            <FormControlLabel value="1" control={<Radio id="subgrupo" checked={this.state.subgrupo === "1"} />} label="I" />
+            <FormControlLabel value="2" control={<Radio id="subgrupo" checked={this.state.subgrupo === "2"} />} label="II" />
+            <FormControlLabel value="3" control={<Radio id="subgrupo" checked={this.state.subgrupo === "3"} />} label="III" />
+            <FormControlLabel value="4" control={<Radio id="subgrupo" checked={this.state.subgrupo === "4"} />} label="IV" />
           </RadioGroup>
 
           <TextField
@@ -234,15 +245,31 @@ class PolizaForm extends Component {
             fullWidth
           />
           <FormControlLabel
-          control={
-            <Switch
-              id ="sinCosto"
-              checked={ this.state.sinCosto}
-              onChange={this.handleChange}
-            />
-          }
-          label="Sin Costo"
-        />
+            control={
+              <Switch
+                id="sinCosto"
+                onChange={this.handleChangeSwitch}
+                checked={this.state.sinCosto}
+                value={true}
+              />
+            }
+            label="Sin Costo"
+          />
+          <TextField
+            id="comentarios"
+            label="Comentarios"
+            value={this.state.comentarios}
+            onChange={this.handleChange}
+            fullWidth
+          />
+
+          <Button variant="contained" color="primary" >
+            Primary
+          </Button>
+          <Button variant="contained" color="secondary" >
+            Secondary
+          </Button>
+
         </form>
       </div>
     );
