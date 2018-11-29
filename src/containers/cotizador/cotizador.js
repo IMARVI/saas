@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import PolizasTable from '../../components/table/polizas-table'
-import './home.css'
+import './cotizador.css'
 
-class Home extends Component {
+class Cotizador extends Component {
   constructor() {
     super();
     this.state = {
+      rfc: '',
+      password: '',
+      redirectTo: null,
     };
   }
 
+
   render() {
     return (
-      <div className= "home">
-          <PolizasTable></PolizasTable>
+      <div className= "cotizador">
       </div>
     );
   }
 }
 
-export default Home;
+export default Cotizador;

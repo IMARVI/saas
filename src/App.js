@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Sidebar from './components/sidebar/sidebar'
 import PolizaNueva from './containers/poliza-nueva/poliza-nueva'
 import Home from './containers/home/home'
+import Cotizador from './containers/cotizador/cotizador'
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route path="/home" component={Home}/>
             <Route path="/poliza-nueva" component={PolizaNueva} />
+            <Route path="/cotizador" component={Cotizador} />
           </Switch>
         </div>
       </div>

@@ -90,10 +90,45 @@ class PolizaForm extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const datos = {
+      user: this.state.email,
+      password: this.state.password,
+      header: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      }
+    }
+
+    axios.post('https://el-equipo-perro.mybluemix.net/company/login', datos)
+      .then(response => {
+        console.log(response)
+        if (response.data.payload === true) {
+          this.props.setUser(this.state.email)
+          this.props.loggedIn()
+          this.setState({
+            redirectTo: '/home'
+          })
+        }
+        else {
+          this.setState({
+            email: '',
+            password: ''
+          })
+        }
+      })
+      .catch(error => {
+        console.log("No se encontro el usuario")
+        console.error(error);
+      });
+  }
+
   render() {
     console.log(this.state)
     const titular = this.verificarParentesco()
     let subgrupo = parseInt(this.state.subgrupo, 10)
+
     return (
       <div>
         <form className="form">
@@ -329,7 +364,7 @@ class PolizaForm extends Component {
             rowsMax={4}
           />
           <div className="botonEnviar">
-            <Button variant="outlined" color="primary" >
+            <Button variant="outlined" color="primary" onClick={this.handleSubmit} >
               Enviar
             </Button>
           </div>
