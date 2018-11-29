@@ -20,7 +20,6 @@ import PersonAdd from '@material-ui/icons/PersonAdd';
 import MenuIcon from '@material-ui/icons/Menu';
 import Home from '@material-ui/icons/Home';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -79,22 +78,22 @@ class Sidebar extends Component {
         <List>
           <Link to="/home">
             <ListItem button>
-              <ListItemIcon><Home/></ListItemIcon>
+              <Home/>
               <ListItemText primary="Inicio"></ListItemText>
             </ListItem>
           </Link>
           <Link to="/poliza-nueva">
             <ListItem button>
-              <ListItemIcon><AddCicle /></ListItemIcon>
+              <AddCicle />
               <ListItemText primary="Nueva Poliza"></ListItemText>
             </ListItem>
           </Link>
           <ListItem button>
-            <ListItemIcon> <AttachMoney /> </ListItemIcon>
+            <AttachMoney />
             <ListItemText primary="Cotizador"></ListItemText>
           </ListItem>
           <ListItem button>
-            <ListItemIcon> <PersonAdd /></ListItemIcon>
+            <PersonAdd />
             <ListItemText primary="Agregar Usr"></ListItemText>
           </ListItem>
         </List>
@@ -114,9 +113,6 @@ class Sidebar extends Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-
-            </Typography>
           </Toolbar>
         </AppBar>
         <nav className={classes.drawer}>

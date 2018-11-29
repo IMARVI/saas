@@ -3,9 +3,17 @@ import ReactDOM from "react-dom";
 import MUIDataTable from "mui-datatables";
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Comment from '@material-ui/icons/Comment';
+import Button from '@material-ui/core/Button';
 
 
 class PolizasTable extends Component {
+  download() {
+    console.log("Descargando poliza")
+  }
+
+  comentarios(){
+    console.log("Comentarios sobre poliza")
+  }
   render() {
     const columns = [
       {
@@ -44,11 +52,11 @@ class PolizasTable extends Component {
       customBodyRender: (value, tableMeta, updateValue) => {
         if(value===1){
           return (
-            <div><CloudDownload/></div>
+            <Button onClick={this.download}><CloudDownload/></Button>
           );
         }else{
           return (
-            <div><Comment/></div>
+            <Button onClick={this.comentarios}><Comment/></Button>
           );
         }
       },
