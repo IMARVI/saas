@@ -10,9 +10,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Input from '@material-ui/core/Input';
+
 
 import './poliza-form.css'
 
@@ -30,6 +31,12 @@ class PolizaForm extends Component {
       apellidoMaterno: '',
       genero: "",
       parentesco: "",
+      primerNombreTitular: '',
+      segundoNombreTitular: '',
+      tercerNombreTitular: '',
+      apellidoPaternoTitular: '',
+      apellidoMaternoTitular: '',
+
       numPoliza: "",
       famila: "",
       cis: "",
@@ -92,6 +99,7 @@ class PolizaForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    /*
     const datos = {
       user: this.state.email,
       password: this.state.password,
@@ -121,7 +129,7 @@ class PolizaForm extends Component {
       .catch(error => {
         console.log("No se encontro el usuario")
         console.error(error);
-      });
+      });*/
   }
 
   render() {
@@ -131,7 +139,7 @@ class PolizaForm extends Component {
 
     return (
       <div>
-        <form className="form">
+        <form className="form" onSubmit={this.handleSubmit}>
           <FormControl
             fullWidth
             margin='dense'
@@ -141,7 +149,7 @@ class PolizaForm extends Component {
               label="Primer Nombre"
               value={this.state.primerNombre}
               onChange={this.handleChange}
-              required={true}
+              required
             />
             <TextField
               id="segundoNombre"
@@ -173,7 +181,6 @@ class PolizaForm extends Component {
 
           <div className="selects" >
             <FormControl
-              margin='dense'
             >
               <InputLabel htmlFor="titulo">Genero</InputLabel>
               <Select
@@ -182,6 +189,7 @@ class PolizaForm extends Component {
                 native
                 value={this.state.genero}
                 onChange={this.handleChange}
+                required
               >
                 <option value="" />
                 <option value={"Hombre"}>Hombre</option>
@@ -191,9 +199,7 @@ class PolizaForm extends Component {
           </div>
 
           <div className="selects" >
-            <FormControl
-              margin='dense'
-            >
+            <FormControl>
               <InputLabel htmlFor="titulo">Parentesco</InputLabel>
               <Select
                 id="parentesco"
@@ -201,6 +207,7 @@ class PolizaForm extends Component {
                 native
                 value={this.state.parentesco}
                 onChange={this.handleChange}
+                required
               >
                 <option value="" />
                 <option value={"Titular"}>Titular</option>
@@ -217,35 +224,35 @@ class PolizaForm extends Component {
                 margin='dense'
               >
                 <TextField
-                  id="primerNombre"
+                  id="primerNombreTitular"
                   label="Primer Nombre"
-                  value={this.state.primerNombre}
+                  value={this.state.primerNombreTitular}
                   onChange={this.handleChange}
                   required={true}
                 />
                 <TextField
-                  id="segundoNombre"
+                  id="segundoNombreTitular"
                   label="Segundo Nombre"
-                  value={this.state.segundoNombre}
+                  value={this.state.segundoNombreTitular}
                   onChange={this.handleChange}
                 />
                 <TextField
-                  id="tercerNombre"
+                  id="tercerNombreTitular"
                   label="Tercer Nombre"
-                  value={this.state.tercerNombre}
+                  value={this.state.tercerNombreTitular}
                   onChange={this.handleChange}
                 />
                 <TextField
-                  id="apellidoPaterno"
+                  id="apellidoPaternoTitular"
                   label="Apellido Paterno"
-                  value={this.state.apellidoPaterno}
+                  value={this.state.apellidoPaternoTitular}
                   onChange={this.handleChange}
                   required={true}
                 />
                 <TextField
-                  id="apellidoMaterno"
+                  id="apellidoMaternoTitular"
                   label="Apellido Materno"
-                  value={this.state.apellidoMaterno}
+                  value={this.state.apellidoMaternoTitular}
                   onChange={this.handleChange}
                   required={true}
                 />
@@ -282,28 +289,33 @@ class PolizaForm extends Component {
             :
             <div></div>
           }
-
+          <br />
           <div className="selects" >
-            <TextField
-              id="fechaNacimiento"
-              label="Fecha de Nacimiento"
-              type="date"
-              onChange={this.handleChange}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+            <FormControl>
+              <TextField
+                id="fechaNacimiento"
+                label="Fecha de Nacimiento"
+                type="date"
+                onChange={this.handleChange}
+                InputLabelProps={{ shrink: true }}
+                required
+              />
+              </FormControl>
           </div>
+          
           <div className="selects" >
-            <TextField
-              id="fechaAntiguedad"
-              label="Fecha de Antiguedad"
-              type="date"
-              onChange={this.handleChange}
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
+            <FormControl>
+              <TextField
+                id="fechaAntiguedad"
+                label="Fecha de Antiguedad"
+                type="date"
+                onChange={this.handleChange}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                required
+              />
+            </FormControl>
           </div>
 
           <h2>Sub Grupo</h2>
@@ -364,12 +376,12 @@ class PolizaForm extends Component {
             rowsMax={4}
           />
           <div className="botonEnviar">
-            <Button variant="outlined" color="primary" onClick={this.handleSubmit} >
+            <Button variant="outlined" color="primary" type="submit" >
               Enviar
             </Button>
           </div>
         </form>
-      </div>
+      </div >
     );
   }
 
