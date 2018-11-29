@@ -65,6 +65,11 @@ class PolizasTable extends Component {
       ["Alicia Martinez", "Seguro de vida", 1,0],
       ["Luis Torres", "Gastos Medicos", 1,0],
       ["Angel Lucatero", "Seguro de vida", 0,1],
+      ["Arturo Garcia", "Seguro de vida", 0,0],
+      ["Luicia Villareal", "Seguro de vida", 0,0],
+      ["Alicia Martinez", "Seguro de vida", 1,0],
+      ["Luis Torres", "Gastos Medicos", 1,0],
+      ["Angel Lucatero", "Seguro de vida", 0,1],
     ];
 
     const options = {

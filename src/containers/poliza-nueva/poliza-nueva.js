@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import PolizaForm from '../../components/poliza-form/poliza-form'
+import './poliza-nueva.css'
 
 class PolizaNueva extends Component {
   constructor() {
@@ -19,7 +20,7 @@ class PolizaNueva extends Component {
 
   render() {
     return (
-      <div>
+      <div className= "polizas">
           <PolizaForm></PolizaForm>
       </div>
     );

@@ -22,18 +22,11 @@
   color: #61dafb;
 }
 
-@media all and (max-width: 600px){
-  .info{
-    padding: 80px;
-  }
-}
-
 @media all and (min-width: 600px) {
   .info{
     width: 80%;
-    padding: 80px;
+    padding-top: 80px;
     margin-left: 240px;
-    margin-right: 20%;
   }
 }
 

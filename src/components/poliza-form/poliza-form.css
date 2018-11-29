@@ -1,10 +1,50 @@
 @media all and (min-width: 480px) {
 
     .form{
-        margin: 0%;
+        margin: auto;
         padding: 0% 0%;     
         align-items: center;
         text-align: center;
+        width: 70%
+    }
+
+    .selects{
+        display: inline;
+        margin: 0% 5% 5% 0%;
+    }
+
+    .radiobotones{
+        margin: auto;
+        width: 240px;
+    }
+    
+    .botonEnviar{
+        margin: 35px;
+    }
+
+}
+@media all and (max-width: 480px) {
+
+    .form{
+        margin: auto;
+        padding: 0% 0%;     
+        align-items: center;
+        text-align: center;
+        width: 100%
+    }
+
+    .selects{
+        display: inline;
+        margin: 0% 5% 5% 0%;
+    }
+
+    .radiobotones{
+        margin: auto;
+        width: 130px;
+    }
+    
+    .botonEnviar{
+        margin: 35px;
     }
 
 }
