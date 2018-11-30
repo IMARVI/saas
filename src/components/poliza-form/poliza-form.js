@@ -11,6 +11,7 @@ import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import FormLabel from '@material-ui/core/FormLabel';
 
 
 import './poliza-form.css'
@@ -39,8 +40,8 @@ class PolizaForm extends Component {
       famila: "",
       cis: "",
       certificado: "",
-      fechaNacimiento: "dd/mm/aaaa",
-      fechaAntiguedad: "dd/mm/aaaa",
+      fechaNacimiento: "",
+      fechaAntiguedad: "",
       subgrupo: "0",
       nombreDesarrollo: "",
       sinCosto: false,
@@ -177,8 +178,7 @@ class PolizaForm extends Component {
           </FormControl>
 
           <div className="selects" >
-            <FormControl
-            >
+            <FormControl>
               <InputLabel htmlFor="titulo">Genero</InputLabel>
               <Select
                 id="genero"
@@ -289,27 +289,23 @@ class PolizaForm extends Component {
           <br />
           <div className="selects" >
             <FormControl>
+            <FormLabel component="legend">Fecha de Nacimiento</FormLabel>
               <TextField
                 id="fechaNacimiento"
-                label="Fecha de Nacimiento"
                 type="date"
                 onChange={this.handleChange}
-                InputLabelProps={{ shrink: true }}
                 required
               />
             </FormControl>
           </div>
-
+          
           <div className="selects" >
             <FormControl>
+            <FormLabel component="legend">Fecha de Antiguedad</FormLabel>
               <TextField
                 id="fechaAntiguedad"
-                label="Fecha de Antiguedad"
                 type="date"
                 onChange={this.handleChange}
-                InputLabelProps={{
-                  shrink: true,
-                }}
                 required
               />
             </FormControl>
