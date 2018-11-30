@@ -23,7 +23,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const styles = theme => ({
   root: {

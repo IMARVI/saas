@@ -21,7 +21,7 @@ class PolizaNueva extends Component {
   render() {
     return (
       <div className= "polizas">
-          <PolizaForm></PolizaForm>
+          <PolizaForm/>
       </div>
     );
   }

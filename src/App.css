@@ -24,9 +24,15 @@
 
 @media all and (min-width: 600px) {
   .info{
-    width: 80%;
-    padding-top: 80px;
-    margin-left: 240px;
+    width: calc(100% - 250px);
+    padding-top: 65px;
+    margin-left: 225px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .info{
+    padding-top: 6px;
   }
 }
 

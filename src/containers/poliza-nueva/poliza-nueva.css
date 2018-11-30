@@ -1,7 +1,17 @@
 @media all and (max-width: 480px) {
   .polizas{
-    padding: 15%;
+    padding: 6%;
+    padding-top: 50px;
   }  
 
 }
-  
+
+@media all and (min-width: 480px) {
+  .polizas{
+    margin: auto;
+    padding: 0px;
+    width: 80%;
+    max-width: 650px;
+  }  
+
+}

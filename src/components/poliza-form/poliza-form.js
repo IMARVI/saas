@@ -39,8 +39,8 @@ class PolizaForm extends Component {
       famila: "",
       cis: "",
       certificado: "",
-      fechaNacimiento: "",
-      fechaAntiguedad: "",
+      fechaNacimiento: "dd/mm/aaaa",
+      fechaAntiguedad: "dd/mm/aaaa",
       subgrupo: "0",
       nombreDesarrollo: "",
       sinCosto: false,
@@ -136,8 +136,7 @@ class PolizaForm extends Component {
     let subgrupo = parseInt(this.state.subgrupo, 10)
 
     return (
-      <div>
-        <form className="form" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <FormControl
             fullWidth
             margin='dense'
@@ -215,7 +214,7 @@ class PolizaForm extends Component {
             </FormControl>
           </div>
           {titular ?
-            <form className="form">
+            <div>
               <h3>Datos Titular</h3>
               <FormControl
                 fullWidth
@@ -283,7 +282,7 @@ class PolizaForm extends Component {
                   required={true}
                 />
               </FormControl>
-            </form>
+            </div>
             :
             <div></div>
           }
@@ -298,9 +297,9 @@ class PolizaForm extends Component {
                 InputLabelProps={{ shrink: true }}
                 required
               />
-              </FormControl>
+            </FormControl>
           </div>
-          
+
           <div className="selects" >
             <FormControl>
               <TextField
@@ -369,7 +368,6 @@ class PolizaForm extends Component {
             onChange={this.handleChange}
             fullWidth
             margin="dense"
-            multiline={true}
             rows={2}
             rowsMax={4}
           />
@@ -379,7 +377,6 @@ class PolizaForm extends Component {
             </Button>
           </div>
         </form>
-      </div >
     );
   }
 
