@@ -15,6 +15,33 @@
         padding-bottom: 20px;
     }
 
+    .nombres{
+        margin-left: 15px !important;
+        width: 30%;
+        padding-bottom: 20px !important;
+    }
+
+    .tarjeta{
+        padding: 0px !important;
+    }
+    .tarjeta p{
+        margin: 10px !important;
+    }
+
+    .tarjeta h4{
+        margin: 10px !important;
+    }
+
+    .contenedorTarjeta{
+        margin-top: 15px !important;
+    }
+
+    .datosTotales{
+        width: 50%;
+        text-align: left;
+        float: left;
+        margin-bottom: 15px;
+    }
 }
 
 @media all and (max-width: 812px) {
@@ -25,7 +52,7 @@
         margin-right: 10px;
         width: 20%;
     }
-    
+
     .nombres{
         width: 90%
     }

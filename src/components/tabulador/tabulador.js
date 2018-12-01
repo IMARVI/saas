@@ -30,6 +30,7 @@ class Tabulador extends Component {
     };
 
     this.agregarPersona = this.agregarPersona.bind(this);
+    this.eliminarPersona = this.eliminarPersona.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -71,17 +72,36 @@ class Tabulador extends Component {
     console.log(this.state.personas)
   }
 
+  eliminarPersona(){
+    let aux = this.state.personas.slice()
+    let num = aux.length
+    if(num > 1){
+      aux.pop()
+      this.setState({
+        ...this.state,
+        personas: aux
+      })
+    }
+  
+  }
+
   render() {
     console.log(this.state)
     let estado = this.state.personas
     let handle = this.handleChange
+    let fecha = new Date();
+    let año = fecha.getFullYear();
+    let mes = fecha.getMonth()+1;
+    let dia = fecha.getDate();
+    let fechaCompleta = dia+"/"+mes+"/"+año
+    let finVigencia = "28/12/"+año
 
     let aux = this.state.personas.map(function (item, i) {
       return (
         <div className="form" key={i}>
           <FormControl
-            fullWidth
             margin='dense'
+            className= 'nombres'
           >
             <TextField
               id={"primerNombre," + i}
@@ -89,12 +109,22 @@ class Tabulador extends Component {
               onChange={handle}
               label="Primer Nombre"
             />
+          </FormControl>
+          <FormControl
+            margin= 'dense'
+            className= 'nombres'
+          >
             <TextField
               id={"paterno," + i}
               value={estado[i].paterno}
               onChange={handle}
               label="Apellido Paterno"
             />
+          </FormControl>
+          <FormControl
+          margin = 'dense'
+          className= 'nombres'
+          >
             <TextField
               id={"materno," + i}
               value={estado[i].materno}
@@ -166,17 +196,11 @@ class Tabulador extends Component {
               />
             </FormControl>
           </div>
-        </div>
-      );
-    })
-    return (
-      <div className= "tabulador" >
-        {aux}
-        <Button variant="outlined" color="primary" onClick={this.agregarPersona} >
-          Agregar Extra
-        </Button>
-        <Card >
-          <CardContent>
+          <Card className="contenedorTarjeta" >
+          <CardContent
+          className="tarjeta"
+          >
+            <h4>Sub Total</h4>
             <p>
               Prima por el periodo:
                 {//this.state.textoSubGrupo[subgrupo].deducible
@@ -192,6 +216,60 @@ class Tabulador extends Component {
                 {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
               }
             </p>
+          </CardContent>
+        </Card>
+        </div>
+      );
+    })
+    return (
+      <div className="tabulador" >
+        {aux}
+        <Button variant="outlined" color="primary" onClick={this.agregarPersona} >
+          Agregar Extra
+        </Button>
+        <Button variant="outlined" color="secondary" onClick={this.eliminarPersona} >
+          Elimnar Extra
+        </Button>
+        <Card className="contenedorTarjeta">
+          <CardContent>
+            <h3>Total:</h3>
+            <div className="datosTotales">
+            Prima por el periodo:
+            </div>
+            <div className="datosTotales">
+              Prima anual: $
+                {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
+              }
+            </div>
+            <div className="datosTotales">
+              Suma Asegurada: $
+                {//this.state.textoSubGrupo[subgrupo].deducible
+              }
+            </div>
+            <div className="datosTotales">
+              Deducible: $
+                {//this.state.textoSubGrupo[subgrupo].deducible
+              }
+            </div>
+            <div className="datosTotales">
+              IVA: $
+                {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
+                }
+            </div>
+            <div className="datosTotales">
+              Fin the Vigencia: 
+                {" "+finVigencia}
+            </div>
+            <div className="datosTotales">
+              Fecha de el calculo: 
+                {" "+fechaCompleta}
+            </div>
+
+            <div className="datosTotales">
+              Dias de Cobertura: 
+                {//this.state.textoSubGrupo[subgrupo].deducible
+              }
+            </div>
           </CardContent>
         </Card>
       </div>
