@@ -78,7 +78,7 @@ class Sidebar extends Component {
         <List>
           <Link to="/home">
             <ListItem button>
-              <Home/>
+              <Home />
               <ListItemText primary="Inicio"></ListItemText>
             </ListItem>
           </Link>
@@ -88,10 +88,12 @@ class Sidebar extends Component {
               <ListItemText primary="Nueva Poliza"></ListItemText>
             </ListItem>
           </Link>
-          <ListItem button>
-            <AttachMoney />
-            <ListItemText primary="Cotizador"></ListItemText>
-          </ListItem>
+          <Link to="/cotizador">
+            <ListItem button>
+              <AttachMoney />
+              <ListItemText primary="Cotizador"></ListItemText>
+            </ListItem>
+          </Link>
           <ListItem button>
             <PersonAdd />
             <ListItemText primary="Agregar Usr"></ListItemText>

@@ -27,6 +27,7 @@
     width: calc(100% - 250px);
     padding-top: 65px;
     margin-left: 225px;
+    height: 100%;
   }
 }
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom';
-import axios from 'axios';
+import Tabulador from '../../components/tabulador/tabulador'
 import './cotizador.css'
 
 class Cotizador extends Component {
@@ -17,6 +16,7 @@ class Cotizador extends Component {
   render() {
     return (
       <div className= "cotizador">
+      <Tabulador></Tabulador>
       </div>
     );
   }

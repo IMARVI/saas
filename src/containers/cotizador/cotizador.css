@@ -1,0 +1,16 @@
+@media all and (max-width: 480px) {
+    .cotizador{
+      padding: 6%;
+      padding-top: 50px;
+    }  
+  
+  }
+  
+  @media all and (min-width: 812px) {
+    .cotizador{
+      margin: auto;
+      padding: 0px;
+      width: 70%;
+    }  
+  
+  }
