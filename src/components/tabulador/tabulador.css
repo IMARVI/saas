@@ -5,14 +5,14 @@
         
     }
 
-    .tabulador{
-        background-color: white;
-    }
-
     .form{
-        width: 93%;
         margin: auto;
         padding-bottom: 20px;
+        background-color: white;
+        height: 100%;
+        border-radius: 4spx;
+        padding-bottom: 10px;
+        
     }
 
     .nombresTabulador{
@@ -42,15 +42,21 @@
         float: left;
         margin-bottom: 15px;
     }
-}
-
-@media all and (max-width: 812px) {
-
-    .selects{
+    .selectsTabulador{
+        display: inline;
         margin: auto;
         margin-left: 10px;
         margin-right: 10px;
-        width: 20%;
+    }
+}
+
+@media all and (max-width: 965px) {
+
+    .selectsTabulador{
+        display: inline;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .nombresTabulador{

@@ -148,7 +148,7 @@ class Tabulador extends Component {
               label="Apellido Materno"
             />
           </FormControl>
-          <div className="selects" >
+          <div className="selectsTabulador" >
             <FormControl>
               <InputLabel htmlFor="titulo">Genero</InputLabel>
               <Select
@@ -165,7 +165,7 @@ class Tabulador extends Component {
               </Select>
             </FormControl>
           </div>
-          <div className="selects" >
+          <div className="selectsTabulador" >
             <FormControl>
               <InputLabel htmlFor="titulo">Parentesco</InputLabel>
               <Select
@@ -183,7 +183,7 @@ class Tabulador extends Component {
               </Select>
             </FormControl>
           </div>
-          <div className="selects" >
+          <div className="selectsTabulador" >
             <FormControl>
               <InputLabel htmlFor="titulo">Plan</InputLabel>
               <Select
@@ -200,7 +200,7 @@ class Tabulador extends Component {
               </Select>
             </FormControl>
           </div>
-          <div className="selects" >
+          <div className="selectsTabulador" >
             <FormControl>
               <FormLabel component="legend">Fecha de Nacimiento</FormLabel>
               <TextField
