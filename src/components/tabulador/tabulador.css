@@ -15,7 +15,7 @@
         padding-bottom: 20px;
     }
 
-    .nombres{
+    .nombresTabulador{
         margin-left: 15px !important;
         width: 30%;
         padding-bottom: 20px !important;
@@ -53,12 +53,8 @@
         width: 20%;
     }
 
-    .nombres{
-        width: 90%
-    }
-    .apellidos{
+    .nombresTabulador{
         width: 90%;
-        min-width: 240px;
     }
 
     .radiobotones{

@@ -36,8 +36,6 @@ class Tabulador extends Component {
 
   //Metodo para hacer el double binding
   handleChange(event) {
-    console.log("dentro de handle")
-    console.log(event.target.value)
     let aux = event.target.id.split(',')
     let id = aux[0]
     let num = aux[1]
@@ -72,36 +70,54 @@ class Tabulador extends Component {
     console.log(this.state.personas)
   }
 
-  eliminarPersona(){
+  eliminarPersona() {
     let aux = this.state.personas.slice()
     let num = aux.length
-    if(num > 1){
+    if (num > 1) {
       aux.pop()
       this.setState({
         ...this.state,
         personas: aux
       })
     }
+  }
+
+  calcularEdad(){
+    
+  }
+
+  calculoFechas() {
+    let fecha = new Date();
+    let año = fecha.getFullYear();
+    let mes = fecha.getMonth() + 1;
+    let dia = fecha.getDate();
+    let fechaCompleta = dia + "-" + mes + "-" + año
+    let finVigencia = "28-12-"+año
+    let finFecha = new Date(año+'-12-29')
+
+    let utc1 = Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate());
+    let utc2 = Date.UTC(finFecha.getFullYear(), finFecha.getMonth(), finFecha.getDate());
+
+    let diasCobertura = Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
   
+    return [fechaCompleta, finVigencia, diasCobertura]
   }
 
   render() {
     console.log(this.state)
     let estado = this.state.personas
     let handle = this.handleChange
-    let fecha = new Date();
-    let año = fecha.getFullYear();
-    let mes = fecha.getMonth()+1;
-    let dia = fecha.getDate();
-    let fechaCompleta = dia+"/"+mes+"/"+año
-    let finVigencia = "28/12/"+año
+    let datosFechas = this.calculoFechas()
+    let fechaCompleta = datosFechas[0]
+    let finVigencia = datosFechas[1]
+    let diasCobertura = datosFechas[2]
 
     let aux = this.state.personas.map(function (item, i) {
       return (
         <div className="form" key={i}>
           <FormControl
             margin='dense'
-            className= 'nombres'
+            className='nombresTabulador'
           >
             <TextField
               id={"primerNombre," + i}
@@ -111,8 +127,8 @@ class Tabulador extends Component {
             />
           </FormControl>
           <FormControl
-            margin= 'dense'
-            className= 'nombres'
+            margin='dense'
+            className='nombresTabulador'
           >
             <TextField
               id={"paterno," + i}
@@ -122,8 +138,8 @@ class Tabulador extends Component {
             />
           </FormControl>
           <FormControl
-          margin = 'dense'
-          className= 'nombres'
+            margin='dense'
+            className='nombresTabulador'
           >
             <TextField
               id={"materno," + i}
@@ -197,27 +213,27 @@ class Tabulador extends Component {
             </FormControl>
           </div>
           <Card className="contenedorTarjeta" >
-          <CardContent
-          className="tarjeta"
-          >
-            <h4>Sub Total</h4>
-            <p>
-              Prima por el periodo:
+            <CardContent
+              className="tarjeta"
+            >
+              <h4>Sub Total</h4>
+              <p>
+                Prima por el periodo:
                 {//this.state.textoSubGrupo[subgrupo].deducible
-              }
-            </p>
-            <p>
-              IVA:
+                }
+              </p>
+              <p>
+                IVA:
                 {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
-              }
-            </p>
-            <p>
-              Prima anual:
+                }
+              </p>
+              <p>
+                Prima anual:
                 {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
-              }
-            </p>
-          </CardContent>
-        </Card>
+                }
+              </p>
+            </CardContent>
+          </Card>
         </div>
       );
     })
@@ -234,7 +250,7 @@ class Tabulador extends Component {
           <CardContent>
             <h3>Total:</h3>
             <div className="datosTotales">
-            Prima por el periodo:
+              Prima por el periodo:
             </div>
             <div className="datosTotales">
               Prima anual: $
@@ -254,21 +270,20 @@ class Tabulador extends Component {
             <div className="datosTotales">
               IVA: $
                 {//this.state.textoSubGrupo[subgrupo].sumaAsegurada
-                }
+              }
             </div>
             <div className="datosTotales">
-              Fin the Vigencia: 
-                {" "+finVigencia}
+              Fin the Vigencia:
+                {" " + finVigencia}
             </div>
             <div className="datosTotales">
-              Fecha de el calculo: 
-                {" "+fechaCompleta}
+              Fecha de el calculo:
+                {" " + fechaCompleta}
             </div>
 
             <div className="datosTotales">
-              Dias de Cobertura: 
-                {//this.state.textoSubGrupo[subgrupo].deducible
-              }
+              Dias de Cobertura:
+                {" " + diasCobertura}
             </div>
           </CardContent>
         </Card>

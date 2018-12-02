@@ -24,6 +24,7 @@
     .apellidos{
         margin-left: 15px !important;
         margin-right: 5px !important;
+        padding-bottom: 10px !important;
         width: 46%;
         min-width: 240px;
     }
