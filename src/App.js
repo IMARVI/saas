@@ -7,6 +7,9 @@ import Cotizador from './containers/cotizador/cotizador'
 import './App.css';
 
 class App extends Component {
+  componentDidMount(){
+    document.title = "Sáss Beneficios";
+  }
   render() {
     return (
       <div className="App">

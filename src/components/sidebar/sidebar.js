@@ -14,7 +14,6 @@ import AddCicle from '@material-ui/icons/AddCircle';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import PersonAdd from '@material-ui/icons/PersonAdd';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -22,8 +21,10 @@ import Home from '@material-ui/icons/Home';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 
+import Logo from '../../resources/images/Logo2Saas.jpg'
 
-const drawerWidth = 200;
+
+const drawerWidth = 210;
 
 const styles = theme => ({
   root: {
@@ -40,6 +41,7 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     },
+    backgroundColor: '#C1291D'
   },
   menuButton: {
     marginRight: 20,
@@ -70,10 +72,10 @@ class Sidebar extends Component {
 
   render() {
     const { classes, theme } = this.props;
-
+    let imagen = Logo
     const drawer = (
       <div>
-        <div className={classes.toolbar} />
+        <img src={Logo} alt="Saas Logo" />
         <Divider />
         <List>
           <Link to="/home">
@@ -85,7 +87,7 @@ class Sidebar extends Component {
           <Link to="/poliza-nueva">
             <ListItem button>
               <AddCicle />
-              <ListItemText primary="Nueva Poliza"></ListItemText>
+              <ListItemText primary="Solicitar Póliza"></ListItemText>
             </ListItem>
           </Link>
           <Link to="/cotizador">
@@ -94,10 +96,10 @@ class Sidebar extends Component {
               <ListItemText primary="Cotizador"></ListItemText>
             </ListItem>
           </Link>
-          <ListItem button>
+          {/*<ListItem button>
             <PersonAdd />
             <ListItemText primary="Agregar Usr"></ListItemText>
-          </ListItem>
+          </ListItem>*/}
         </List>
       </div>
     );
@@ -105,18 +107,20 @@ class Sidebar extends Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <div className="barra">
+          <AppBar position="fixed" className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="Open drawer"
+                onClick={this.handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+        </div>
         <nav className={classes.drawer}>
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">

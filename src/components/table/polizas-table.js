@@ -4,6 +4,9 @@ import MUIDataTable from "mui-datatables";
 import CloudDownload from '@material-ui/icons/CloudDownload';
 import Comment from '@material-ui/icons/Comment';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux'
+
+
 
 
 class PolizasTable extends Component {
@@ -50,9 +53,9 @@ class PolizasTable extends Component {
     options: {
       filter: true,
       customBodyRender: (value, tableMeta, updateValue) => {
-        if(value===1){
+        if(value[0]===1){
           return (
-            <Button onClick={this.download}><CloudDownload/></Button>
+            <Button onClick={this.download} href={value[1]} target="_blank" ><CloudDownload/></Button>
           );
         }else{
           return (
@@ -61,7 +64,8 @@ class PolizasTable extends Component {
         }
       },
     }
-    }
+    },
+
     ];
 
     const data = [
@@ -88,8 +92,7 @@ class PolizasTable extends Component {
     };
     return (
       <MUIDataTable
-        title={"ACME Employee list"}
-        data={data}
+        data={this.props.usuarios}
         columns={columns}
         options={options}
       />
@@ -97,4 +100,17 @@ class PolizasTable extends Component {
   }
 }
 
-export default PolizasTable;
+//Con este metodo mandamos a llamar los valores que hay en redux
+const mapStateToProps = state => {
+  return {
+    usuarios: state.usuarios,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUsuarios: (users) => dispatch({ type: 'SET_USUARIOS', usuariosTodos: users }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PolizasTable);
