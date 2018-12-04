@@ -16,7 +16,7 @@ class Tabulador extends Component {
       globalPrima: 0,
       globalIva: 0,
       globalPrimaAnual:0,
-      plan: "",
+      plan: 0,
       diasCobertura: "",
       personas: [
         {
@@ -26,12 +26,12 @@ class Tabulador extends Component {
           materno: "",
           genero: "",
           parentesco: "",
-          plan: "",
+          plan: 0,
           fechaNacimiento: "",
-          edad: null,
-          primaPeriodo: null,
-          iva: null,
-          primaAnual: null
+          edad: 0,
+          primaPeriodo: 0,
+          iva: 0,
+          primaAnual: 0
         }
       ],
       tablaEdad: [
@@ -203,7 +203,28 @@ class Tabulador extends Component {
             mujer: 10796.77
           }
         }
-      ]
+      ],
+      tipoSeguro: [{
+        sumaAsegurada: "",
+        deducible: ""
+      },
+      {
+        sumaAsegurada: " 500 UMAM",
+        deducible: " 9.9 UMAM"
+      },
+      {
+        sumaAsegurada: " 500 UMAM",
+        deducible: " 2.9 UMAM"
+      },
+      {
+        sumaAsegurada: " 200 UMAM",
+        deducible: " 2.9 UMAM"
+      },
+      {
+        sumaAsegurada: " 10,000 UMAM",
+        deducible: " 4.9 UMAM"
+      }
+      ]  
     };
 
     this.agregarPersona = this.agregarPersona.bind(this);
@@ -221,6 +242,7 @@ class Tabulador extends Component {
 
     if(id === "plan"){
       copia[num][id] = event.target.value
+      
       this.setState({
         plan: event.target.value,
         personas: copia
@@ -311,12 +333,12 @@ class Tabulador extends Component {
       materno: "",
       genero: "",
       parentesco: "",
-      plan: "",
+      plan: aux[0].plan,
       fechaNacimiento: "",
-      edad: null,
-      primaPeriodo: null,
-      iva: null,
-      primaAnual: null
+      edad: 0,
+      primaPeriodo: 0,
+      iva: 0,
+      primaAnual: 0
     }
     aux.push(persona)
     this.setState({
@@ -333,7 +355,9 @@ class Tabulador extends Component {
       this.setState({
         ...this.state,
         personas: aux
-      })
+      }, () => {
+        this.calcularTotales()
+       })
     }
   }
 
@@ -476,7 +500,7 @@ class Tabulador extends Component {
                 native
                 required
               >
-                <option value="" />
+                <option value={0} />
                 <option value={1}>I</option>
                 <option value={2}>II</option>
                 <option value={3}>III</option>
@@ -541,12 +565,11 @@ class Tabulador extends Component {
             </div>
             <div className="datosTotales">
               Suma Asegurada: $
-                {//this.state.textoSubGrupo[subgrupo].deducible
-              }
+                {this.state.tipoSeguro[parseInt(plan,10)].sumaAsegurada}
             </div>
             <div className="datosTotales">
               Deducible: $
-              {" "}
+              {this.state.tipoSeguro[parseInt(plan,10)].deducible}
             </div>
             <div className="datosTotales">
               IVA: $

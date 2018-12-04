@@ -1,6 +1,6 @@
 const initialSate = {
     usuarios : [
-      ["henrry Ortega", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/uno.pdf"]],
+      ["Henrry Ortega", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/uno.pdf"]],
       ["Ana Victoria Morales", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/dos.pdf"]],
       ["Jonathan Alberto Castor", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/tres.pdf"]],
       ["Alberto Antonio Rojas", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cuatro.pdf"]],
