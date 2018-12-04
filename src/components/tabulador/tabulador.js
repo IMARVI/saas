@@ -371,9 +371,9 @@ class Tabulador extends Component {
     console.log(this.state.personas)
     for(var p in this.state.personas){
       let c = this.state.personas[p]
-      primaPeriodo+= c.primaPeriodo
-      iva += c.iva
-      primaAnual += c.primaAnual
+      primaPeriodo+= parseFloat(c.primaPeriodo)
+      iva += parseFloat(c.iva)
+      primaAnual += parseFloat(c.primaAnual)
     }
     this.setState({
       globalIva: iva,
