@@ -1,10 +1,10 @@
 const initialSate = {
     usuarios : [
-      ["Maria Antonieta", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/uno.pdf"]],
-      ["Isaias Martinez", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/dos.pdf"]],
-      ["Alfonso Ledezma", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/tres.pdf"]],
-      ["Arturo Garcia", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cuatro.pdf"]],
-      ["Luicia Villareal", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cinco.pdf"]]
+      ["henrry Ortega", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/uno.pdf"]],
+      ["Ana Victoria Morales", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/dos.pdf"]],
+      ["Jonathan Alberto Castor", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/tres.pdf"]],
+      ["Alberto Antonio Rojas", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cuatro.pdf"]],
+      ["Liliana Rico", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cinco.pdf"]]
     ]
   }
   
