@@ -430,7 +430,7 @@ class PolizaForm extends Component {
                   value={true}
                 />
               }
-              label="Vo. Bo."
+              label="Sin costo"
             />
             <TextField
               id="comentarios"

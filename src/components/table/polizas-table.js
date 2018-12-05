@@ -120,7 +120,7 @@ class PolizasTable extends Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"La póliza ha sido dada de baja"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{"Se ha realizado solicitud de baja"}</DialogTitle>
 
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
