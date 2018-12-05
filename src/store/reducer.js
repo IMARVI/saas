@@ -20,6 +20,18 @@ const initialSate = {
       }
     }
 
+    if(action.type === 'DELETE_USR'){
+      console.log(action.usuario)
+      let aux = state.usuarios.slice()
+      console.log(aux)
+      aux.splice(action.usuario,1)
+      console.log(aux)
+      return{
+        ...state,
+        usuarios : aux
+      }
+    }
+
     return state
   }
   

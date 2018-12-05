@@ -394,8 +394,8 @@ class PolizaForm extends Component {
               >
                 <FormControlLabel value="1" control={<Radio id="subgrupo" checked={this.state.subgrupo === "1"} />} label="I" />
                 <FormControlLabel value="2" control={<Radio id="subgrupo" checked={this.state.subgrupo === "2"} />} label="II" />
-                {/*<FormControlLabel value="3" control={<Radio id="subgrupo" checked={this.state.subgrupo === "3"} />} label="III" />
-                <FormControlLabel value="4" control={<Radio id="subgrupo" checked={this.state.subgrupo === "4"} />} label="IV" />*/}
+                <FormControlLabel value="3" control={<Radio id="subgrupo" checked={this.state.subgrupo === "3"} />} label="III" />
+                <FormControlLabel value="4" control={<Radio id="subgrupo" checked={this.state.subgrupo === "4"} />} label="IV" />
               </RadioGroup>
             </div>
 
@@ -413,14 +413,14 @@ class PolizaForm extends Component {
               </CardContent>
             </Card>
 
-            {/*<TextField
+            <TextField
               className="texts"
               id="nombreDesarrollo"
               label="Nombre del Desarrollo"
               value={this.state.nombreDesarrollo}
               onChange={this.handleChange}
               margin="dense"
-            />*/}
+            />
             <FormControlLabel
               control={
                 <Switch
