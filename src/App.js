@@ -4,6 +4,7 @@ import Sidebar from './components/sidebar/sidebar'
 import PolizaNueva from './containers/poliza-nueva/poliza-nueva'
 import Home from './containers/home/home'
 import Cotizador from './containers/cotizador/cotizador'
+import NewUsr from './containers/new-usr/new-usr'
 import './App.css';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path="/home" component={Home}/>
             <Route path="/poliza-nueva" component={PolizaNueva} />
             <Route path="/cotizador" component={Cotizador} />
+            <Route path="/agregarUsr" component={NewUsr} />
           </Switch>
         </div>
       </div>

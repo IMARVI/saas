@@ -1,0 +1,13 @@
+.campos{
+    margin-left: 15px !important;
+    margin-right: 5px !important;
+    width: 80%;
+    min-width: 240px;
+}
+.password{
+    margin-left: 15px !important;
+    margin-right: 5px !important;
+    margin-top: 25px !important;
+    width: 80%;
+    min-width: 240px;
+}
