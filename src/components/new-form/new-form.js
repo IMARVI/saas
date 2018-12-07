@@ -29,6 +29,7 @@ class NewForm extends Component {
       username: "",
       password: "",
       role: "",
+      company:"",
       passInvalido: false,
       mensaje: false,
       errores: []
@@ -36,7 +37,7 @@ class NewForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    
   }
 
   //Metodo para hacer el double binding
@@ -106,7 +107,6 @@ class NewForm extends Component {
     this.setState({ mensaje: false });
   };
 
-
   render() {
     console.log(this.state)
     const passInvalido = this.state.passInvalido
@@ -173,6 +173,19 @@ class NewForm extends Component {
                 <option value={1}>Recursos Humanos</option>
                 <option value={2}>Colaborador</option>
               </Select>
+            </FormControl>
+
+            <FormControl
+              margin='dense'
+              className="campos"
+            >
+              <TextField
+                id="company"
+                label="Empresa"
+                value={this.state.company}
+                onChange={this.handleChange}
+                required
+              />
             </FormControl>
 
             <FormControl className="password" margin="dense">
