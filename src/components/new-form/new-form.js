@@ -23,6 +23,7 @@ class NewForm extends Component {
   constructor() {
     super();
     this.state = {
+      redirectTo:null,
       redirect: false,
       nombre: "",
       apellido: "",
@@ -63,7 +64,7 @@ class NewForm extends Component {
 
     if (test) {
       this.setState({
-        redirectTo: '/home'
+        redirectTo: '/'
       })
     } else {
 

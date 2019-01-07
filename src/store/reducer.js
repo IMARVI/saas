@@ -4,8 +4,39 @@ const initialSate = {
       ["Ana Victoria Morales", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/dos.pdf"]],
       ["Jonathan Alberto Castor", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/tres.pdf"]],
       ["Alberto Antonio Rojas", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cuatro.pdf"]],
-      ["Liliana Rico", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cinco.pdf"]]
-    ]
+      ["Liliana Rico", "Gastos Medicos", 1,[1,"https://s3.amazonaws.com/saas-polizas/cinco.pdf"]],
+      ["Isaias Martinez", "Gastos Medicos", 0,[0,null]]
+    ],
+    usuario: {
+      poliza: "1q2w3e4r5t6y",
+      tipoSeguro: 0,
+      primerNombre: 'Isaias',
+      segundoNombre: '',
+      tercerNombre: '',
+      apellidoPaterno: 'Martinez',
+      apellidoMaterno: 'Vieyra',
+      genero: "Hombre",
+      parentesco: "Titular",
+
+      primerNombreTitular: '',
+      segundoNombreTitular: '',
+      tercerNombreTitular: '',
+      apellidoPaternoTitular: '',
+      apellidoMaternoTitular: '',
+      numPoliza: "",
+      famila: "",
+      cis: "",
+      certificado: "",
+
+      fechaNacimiento: "1991-09-21",
+      fechaAntiguedad: "2010-09-21",
+      fechaSolicitud: "2015-09-21",
+      fechaAlta: "",
+      subgrupo: "1",
+      nombreDesarrollo: "",
+      sinCosto: false,
+      comentarios: ""
+    }
   }
   
   const reducer = (state = initialSate, action) =>{

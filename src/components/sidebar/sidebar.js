@@ -78,7 +78,7 @@ class Sidebar extends Component {
         <img src={Logo} alt="Saas Logo" />
         <Divider />
         <List>
-          <Link to="/home"  
+          <Link to="/"  
           style={{textDecoration: 'none', color: 'black'}}
           >
             <ListItem button>
@@ -86,7 +86,7 @@ class Sidebar extends Component {
               <ListItemText primary="Inicio"></ListItemText>
             </ListItem>
           </Link>
-          <Link to="/poliza-nueva"
+          <Link to="/new-policy"
           style={{textDecoration: 'none', color: 'black'}}
           >
             <ListItem button>
@@ -94,21 +94,13 @@ class Sidebar extends Component {
               <ListItemText primary="Solicitar Póliza"></ListItemText>
             </ListItem>
           </Link>
-          <Link to="/cotizador"
+          <Link to="/quoting"
           style={{textDecoration: 'none', color: 'black'}}
           >
             <ListItem button>
               <AttachMoney />
               <ListItemText primary="Cotizador"></ListItemText>
             </ListItem>
-          </Link>
-          <Link to="/agregarUsr"
-          style={{textDecoration: 'none', color: 'black'}}
-          >
-          <ListItem button>
-            <PersonAdd />
-            <ListItemText primary="Agregar Usr"></ListItemText>
-          </ListItem>
           </Link>
         </List>
       </div>

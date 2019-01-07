@@ -15,16 +15,15 @@ import FormLabel from '@material-ui/core/FormLabel';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 
-import './poliza-form.css'
+import './review-poliza.css'
 
 
 
-class PolizaForm extends Component {
-
+class ReviewPoliza extends Component {
   constructor() {
     super();
     this.state = {
-      redirect: false,
+      redirectTo: null,
       tipoSeguro: 0,
       primerNombre: '',
       segundoNombre: '',
@@ -46,7 +45,6 @@ class PolizaForm extends Component {
       fechaAntiguedad: "",
       fechaSolicitud: "",
       fechaAlta: "",
-      fechaAltaNacimiento: "",
       subgrupo: "0",
       nombreDesarrollo: "",
       sinCosto: false,
@@ -88,9 +86,8 @@ class PolizaForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeSwitch = this.handleChangeSwitch.bind(this);
-    this.selecionarPoliza = this.selecionarPoliza.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.cancelarMod = this.cancelarMod.bind(this);
   }
 
   //Metodo para hacer el double binding
@@ -113,19 +110,6 @@ class PolizaForm extends Component {
       return true
     } else {
       return false
-    }
-  }
-
-  selecionarPoliza() {
-    let tipo = this.state.tipoSeguro
-    if (tipo === 1) {
-      this.setState({
-        tipoSeguro: 0,
-      });
-    } else {
-      this.setState({
-        tipoSeguro: 1,
-      });
     }
   }
 
@@ -174,19 +158,31 @@ class PolizaForm extends Component {
       });*/
   }
 
+  componentDidMount(){
+    this.setState({
+      ...this.props.usuario1
+    });
+  }
+
+  cancelarMod(){
+    this.setState({
+      redirectTo: "/"
+    })
+  }
 
 
   render() {
     console.log(this.state)
+    console.log(this.props.match.params.id_poliza)
+
     const titular = this.verificarParentesco()
     let subgrupo = parseInt(this.state.subgrupo, 10)
-    //let tipo = this.state.tipoSeguro == 0 ? true : false
     if (this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />;
     } else {
       return (
         <div>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="pol">
             <FormControl
               margin='dense'
               className="nombres"
@@ -292,6 +288,7 @@ class PolizaForm extends Component {
                 <FormControl
                   fullWidth
                   margin='dense'
+                  
                 >
                   <TextField
                     id="primerNombreTitular"
@@ -366,6 +363,7 @@ class PolizaForm extends Component {
                 <TextField
                   id="fechaNacimiento"
                   type="date"
+                  value={this.state.fechaNacimiento}
                   onChange={this.handleChange}
                   required
                 />
@@ -378,6 +376,7 @@ class PolizaForm extends Component {
                 <TextField
                   id="fechaAntiguedad"
                   type="date"
+                  value={this.state.fechaAntiguedad}
                   onChange={this.handleChange}
                   required
                 />
@@ -441,231 +440,16 @@ class PolizaForm extends Component {
               rows={2}
               rowsMax={4}
             />
-            <div className="botonEnviar">
-              <Button variant="outlined" color="primary" type="submit" >
-                Enviar
-            </Button>
-            </div>
-          </form>
-        </div>
-        /*:
-        <div>
-          <Button variant="contained" color="primary" onClick={this.selecionarPoliza} >
-            Gastos Medicos M
-          </Button>
-          <Button variant="contained" color="primary" disabled  >
-            Seguro de Vida
-          </Button>
-          <form onSubmit={this.handleSubmit}>
-            <h3>Datos de quien elabora póliza</h3>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="elaboraPrimerNombre"
-                label="Primer Nombre"
-                value={this.state.elaboraPrimerNombre}
-                onChange={this.handleChange}
-                required
-              />
-            </FormControl>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="elaboraSegundoNombre"
-                label="Segundo Nombre"
-                value={this.state.elaboraSegundoNombre}
-                onChange={this.handleChange}
-              />
-            </FormControl>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="elaboraTercerNombre"
-                label="Tercer Nombre"
-                value={this.state.elaboraTercerNombre}
-                onChange={this.handleChange}
-              />
-            </FormControl>
             <div>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="elaboraPaterno"
-                  label="Apellido Paterno"
-                  value={this.state.elaboraPaterno}
-                  onChange={this.handleChange}
-                  required={true}
-                />
-              </FormControl>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="elaboraMaterno"
-                  label="Apellido Materno"
-                  value={this.state.elaboraMaterno}
-                  onChange={this.handleChange}
-                  required={true}
-                />
-              </FormControl>
-            </div>
-            <div className="selects" >
-              <FormControl>
-                <FormLabel component="legend">Fecha de solicitud</FormLabel>
-                <TextField
-                  id="fechaSolicitud"
-                  type="date"
-                  onChange={this.handleChange}
-                  required
-                />
-              </FormControl>
-            </div>
-            <div className="selects" >
-              <FormControl>
-                <FormLabel component="legend">Fecha de alta</FormLabel>
-                <TextField
-                  id="fechaAlta"
-                  type="date"
-                  onChange={this.handleChange}
-                  required
-                />
-              </FormControl>
-            </div>
-            <h3>Datos persona a dar de Alta</h3>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="altaPrimerNombre"
-                label="Primer Nombre"
-                value={this.state.altaPrimerNombre}
-                onChange={this.handleChange}
-                required
-              />
-            </FormControl>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="altaSegundoNombre"
-                label="Segundo Nombre"
-                value={this.state.altaSegundoNombre}
-                onChange={this.handleChange}
-              />
-            </FormControl>
-            <FormControl
-              margin='dense'
-              className="nombres"
-            >
-              <TextField
-                id="altaTercerNombre"
-                label="Tercer Nombre"
-                value={this.state.altaTercerNombre}
-                onChange={this.handleChange}
-              />
-            </FormControl>
-  
-            <div>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="altaPaterno"
-                  label="Apellido Paterno"
-                  value={this.state.altaPaterno}
-                  onChange={this.handleChange}
-                  required={true}
-                />
-              </FormControl>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="altaMaterno"
-                  label="Apellido Materno"
-                  value={this.state.altaMaterno}
-                  onChange={this.handleChange}
-                  required={true}
-  
-                />
-              </FormControl>
-            </div>
-            <div>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="altaEmpresa"
-                  label="Empresa"
-                  value={this.state.altaEmpresa}
-                  onChange={this.handleChange}
-                  required={true}
-                />
-              </FormControl>
-              <FormControl
-                margin='dense'
-                className="apellidos"
-              >
-                <TextField
-                  id="altaPlaza"
-                  label="Plaza"
-                  value={this.state.altaPlaza}
-                  onChange={this.handleChange}
-                  required={true}
-  
-                />
-              </FormControl>
-            </div>
-            <div className="selects" >
-              <FormControl>
-                <InputLabel htmlFor="titulo">Genero</InputLabel>
-                <Select
-                  id="altaGenero"
-                  displayEmpty={true}
-                  native
-                  value={this.state.altaGenero}
-                  onChange={this.handleChange}
-                  required
-                >
-                  <option value="" />
-                  <option value={"Hombre"}>Hombre</option>
-                  <option value={"Mujer"}>Mujer</option>
-                </Select>
-              </FormControl>
-              </div>
-              <div className="selects" >
-              <FormControl>
-                <FormLabel component="legend">Fecha de Nacimiento</FormLabel>
-                <TextField
-                  id="fechaAltaNacimiento"
-                  type="date"
-                  onChange={this.handleChange}
-                  required
-                />
-              </FormControl>
-            </div>
-            <div className="botonEnviar">
-              <Button variant="outlined" color="primary" type="submit" >
-                Enviar
+              <Button variant="outlined" color="primary" type="submit"className="botones" >
+                Aceptar
+              </Button>
+              <Button variant="outlined" color="secondary" onClick={this.cancelarMod} className="botones" >
+                Rechazar
               </Button>
             </div>
           </form>
         </div>
-      }*/
       );
     }
   }
@@ -676,6 +460,7 @@ class PolizaForm extends Component {
 const mapStateToProps = state => {
   return {
     usuarios: state.usuarios,
+    usuario1: state.usuario
   };
 };
 
@@ -684,4 +469,6 @@ const mapDispatchToProps = dispatch => {
     setUsuarios: (users) => dispatch({ type: 'SET_USR', users: users }),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(PolizaForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewPoliza);
+

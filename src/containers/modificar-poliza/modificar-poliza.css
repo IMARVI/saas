@@ -1,0 +1,89 @@
+@media all and (min-width: 600px) {
+
+    .selects{
+        display: inline;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .radiobotones{
+        margin: auto;
+        width: 240px;
+    }
+    
+    .botones{
+        margin: 25px 15px !important;
+    }
+
+    .nombres{
+        margin-left: 15px !important;
+        width: 30%
+    }
+
+    .apellidos{
+        margin-left: 15px !important;
+        margin-right: 5px !important;
+        padding-bottom: 10px !important;
+        width: 46%;
+        min-width: 240px;
+    }
+
+    form{
+        background-color: white;
+        -webkit-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.36);
+        -moz-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.36);
+        box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.36);
+        height: 100%;
+        border-radius: 13px 13px 13px 13px;
+        -moz-border-radius: 13px 13px 13px 13px;
+        -webkit-border-radius: 13px 13px 13px 13px;
+        border: 0px solid #000000;
+    }
+
+    .pol{
+        margin: auto;
+        padding: 0px;
+        width: 70%;
+    }
+
+    .texts{
+        width: 90%;
+        margin: auto
+    }
+
+    .datosTitular{
+        margin: auto;
+        padding: 0px;
+        width: 70%;
+    }
+    
+
+
+}
+@media all and (max-width: 845px) {
+
+    .selects{
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .nombres{
+        width: 90%
+    }
+    .apellidos{
+        width: 90%;
+        min-width: 240px;
+    }
+
+    .radiobotones{
+        margin: auto;
+        width: 130px;
+    }
+    
+    .botonEnviar{
+        margin: 35px;
+    }
+
+}
+  
